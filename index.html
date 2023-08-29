@@ -1,15 +1,1163 @@
-<!DOCTYPE html>  
-<html>  
-	<head>  
-		<title>CSS Stylesheet tutorial</title> 
-		<meta charset="UTF-8">
-        <script type="module" src="https://md-block.verou.me/md-block.js"></script>
-	</head> 
-
-	<style>
-	</style>
-	 
-	<body>  
-		Kokos
-	</body>  
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>CSS Stylesheet Tutorial</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h3 id="informatika-teoretická-aplikovaná-pojmy">1. Informatika
+teoretická, aplikovaná, pojmy</h3>
+<ul>
+<li><strong>teoretická informatika</strong> přebírá některé znalosti z
+matematiky, studuje je a aplikuje je na konkrétní teoretické problémy v
+informatice - většinou algoritmy na cokoliv prostě</li>
+<li><strong>aplikovaná informatika</strong> bere znalosti teoretické
+informatiky a aplikuje je na konkrétní praktické problémy co se počítačů
+týče (teoretická informatika navrhne algoritmus na nějakou třeba
+komunikaci v síti, aplikovaná veyme tenhle algoritmus a udělá ho na
+nějaký opravdový síti, třeba školních počítačů nebo tak).</li>
+<li>Aplikovaná verzus teoretická -vědní disciplína- se rozlišuje často,
+i u matiky nebo stavařiny, ale ta linie mezi tim co je aplikovany a co
+je teoreticky je dost nejasná, často jen pocitová</li>
+<li><strong>teoretická informatika zahrnuje</strong>
+<ul>
+<li>trochu spojité matematiky, jako je matematická analýza</li>
+<li>geometrii v počítačové grafice</li>
+<li>diskrétní matematiku (teorie grafů, kombinatorika, logika, algebra)
+obecně v teorii, programování a algoritmech</li>
+<li>pravděpodobnost a statistiku opět v algoritmech</li>
+</ul></li>
+<li><strong>aplikovaná informatika zahrnuje</strong>
+<ul>
+<li>všechny (alespoň většinu) znalostí teoretické informatiky které
+aplikuje například na:</li>
+<li>návrh konkrétní databáze pro konkrétní firmu</li>
+<li>tvorba firemních webových stránek</li>
+<li>naprogramování konkrétního algoritmu v konkrétním jayzyce</li>
+<li>návrh konkrétního hardwaru (thinkpad t480, základová deska MSI,
+…)</li>
+<li>vývoj jakýkoliv aplikace a hry</li>
+<li>nebo aplikace na jiné než informatické-počítačové věcy
+<ul>
+<li>bioinformatika - řeší prostě počítače ve zdravotnictví</li>
+<li>výpočtové systémy pro stavitelství - nikdo nepočítá baráky v
+ruce…</li>
+<li>jakákoliv jiná vědní disciplína taky potřebuje počítače (fakt
+jakákoliv, klidně pajda a počítače ve výuce a takový pičoviny. Cokoliv
+řekneš bude dobře)</li>
+</ul></li>
+</ul></li>
+<li><strong>Výpočetní technika zahrnuje</strong>
+<ul>
+<li>opět některý věci z matematiky a informatiky, ale taky spousta
+elektrotechniky, protože lidi co dějak výpočetní techniku fakt navrhujou
+elektrický pičovinky v těch počítačích (Jakub Kares)</li>
+<li>je to věda o tom jak prostě udělat počítač/drona/autíčko/něco se
+senzorama a dalsi kokotinky, opět příkladů spousta, nemůžeš se splést
+<ul>
+<li>pravděpodobně pokud postavi nejakyho drona tak ho budou chtit i
+ridit, to taky muze spadat pod vypocetni techniku ale je to hodne
+okrajovy, teorie rizeni se studuje jinde vetsinou</li>
+</ul></li>
+</ul></li>
+<li><strong>Informace</strong>
+<ul>
+<li>abstraktni pojem, neco co se da uchovavat a šířit (lepsi definice
+jde blbe)</li>
+<li>abychom ji ale mohli sdilet a uchovavat a treba i cist tak tu
+informaci musime nejak zakodovat. Kodovanim se mysli treba to, ze
+prirozeny cislo prevedes do binarni soustavy a uchovas v pocitaci jako
+jednicky a nuly.</li>
+<li>Opacny pohled je, ze pocitac umi pracovat jen s binarni soustavou a
+i pres to umi nejakym zpusobem zachytit koncepty mimo binární soustavu,
+jako je skin z lolka, akce zmáčknutí myši, obrázek nyan cat …</li>
+<li>Pointa je takova ze jsme skin z lolka / obrazek zakodovali do
+binarni soustavy aby s tim mohl pocitac pracovat a uchovat to.</li>
+<li>Pro hlubší pochopení se podívejme na nějaký <strong>příklady
+kódování</strong>
+<ul>
+<li><strong>Přirozená čísla</strong> v počítači
+<ul>
+<li>nejjednodušší příklad, prostě je převedeme do binární soustavy a
+uchováme v počítači jako nuly a jedničky</li>
+<li>Jde o to, že jsme něco matematickýho, nějakou informaci, převedli do
+řeči počítače aka zakódovali</li>
+</ul></li>
+<li><strong>Písmena ASCII</strong>
+<ul>
+<li>správně se jim neříká písmena, ale spíš charaktery, protože celý
+ASCII neobsahuje jenom písmena ale to je detail</li>
+<li>Jak zadat do počítače písmeno když počítač zná jen jedničky a nuly?
+Jednoduše! Prostě si někdo v minulosti vymezil na jedno písmeno 1 Byte
+(8 bitů).</li>
+<li>V jednom bytu se dá uchovat určitej počet informací, souvisí to s
+kombinatorikou, třeba přes kombinatorický pravidlo součinu máš 8 pozic a
+na každý můžou bejt 2 číslice, to je celkem 2^8 různejch možností,
+celkem 256.</li>
+<li>A lidi si v minulym století prostě řekli, že 00000000=a, 00000001=b,
+00000010=c, 00000011=d, …</li>
+<li>Je to fakt jen o tom, že si o nějaký sekvenci nul a jedniček řekneš
+že něco znamenaj.</li>
+<li>V tom je taky jedinej zádrhel kódování. sekvence 01001011 může
+znamenat 15 když o tom přemýšlíš jako o přirozenym číslu, může to
+znamenat písmeno ‘ů’ v kódování ASCII a může to bejt třeba pixel,
+cokoliv</li>
+<li>Je teda důležitý, abys s danou zakódovanou informací měl i znalost
+jak je zakódovaná, nebo “co je v ní schovaný”</li>
+</ul></li>
+<li><strong>Písmena UNICODE</strong>
+<ul>
+<li>další kódování písmen, o něco složitější ale je v něm víc znaků,
+třeba čínský blbosti a emoji</li>
+<li>funguje jako nadstavba pro ASCII, ale to je detail</li>
+<li>konkrétní tabulku ASCII/UNICODE najdes treba <a
+href="https://web.alfredstate.edu/faculty/weimandn/miscellaneous/ascii/ascii_index.html">tady</a>,
+ty priklady co jsem daval byly samozrejme jen ilustrativni a jsou
+blbe</li>
+</ul></li>
+<li><strong>Obrázky zjednodušeně</strong>
+<ul>
+<li>s celym obrázkem je to složitější, ale naučim tě jeden ze způsobů
+jak zakódovat pixel, obrázek pak bude víc pixelů</li>
+<li>barevnej RGB pixel (se budes ucit s tatou) se da reprezentovat
+trojicí čísel (Red, Green, Blue).</li>
+<li>Přirozený čísla už umíme kódovat, a tedy pixel budou prostě 3
+binární čísla za sebou, tedy šedej pixel bude 000001110000011100000111
+třeba</li>
+</ul></li>
+<li>vyjadřovali jsme všechno v binární soustavě, ale samozřejmě je to
+teoreticky možný v každý soustavě a nebo jakýkoliv jiný blbosti. Klíčem
+je to, že něčemu “přiřadíš takhle význam”</li>
+</ul></li>
+</ul></li>
+<li><strong>Ergonomie</strong>
+<ul>
+<li>udává, jak bys měl bejt postavenej u práce s počítačem a jak bz měl
+bejt postavenej ten počítač
+<ul>
+<li>pravidelné přestávky, cvičení</li>
+<li>monitor bez závad co kazí oči</li>
+<li>klávesnice tak, aby si šlo opřít zápěstí</li>
+<li>to samý s myší</li>
+<li>sedět rovně a koukat rovně</li>
+<li>lokty pravej úhel</li>
+</ul></li>
+</ul></li>
+<li><strong>Hygiena a bezpečnost</strong>
+<ul>
+<li>zdravotní rizika
+<ul>
+<li>tenisový loket - při dlouhodobé práci se špatně umístěnou
+klávesnicí, bolí to i guess</li>
+<li>onemocnění páteře - když sedíš blbě u kompu dlouho tak z toho bolí
+záda</li>
+<li>onemocnění zraku - dlouho koukáš do monitoru a pak bolí
+oči/hlava</li>
+</ul></li>
+<li>negativní vlivy
+<ul>
+<li>závislost na počítačových hrách</li>
+<li>závislost na sociálních mediích a internetu</li>
+</ul></li>
+</ul></li>
+<li>Využití osobami s <strong>handicapem</strong>
+<ul>
+<li>pico co <strong>TODO</strong> ### 2. Počítačová sestava</li>
+</ul></li>
+<li><strong>desktop</strong>
+<ul>
+<li>krabice
+<ul>
+<li>zakladova deska - k cemu slouzi, co je na ni</li>
+<li>pamet RAM - ruzny generace, k cemu slouzi</li>
+<li>pevny disk - dva hlavni druhy</li>
+<li>Processor - k cemu slouzi, co je na ni</li>
+<li>Graficka karta - k cemu slouzi</li>
+<li>Zdroj</li>
+<li>…</li>
+</ul></li>
+<li>periferie
+<ul>
+<li>monitor</li>
+<li>mys</li>
+<li>klavesnice</li>
+<li>reproduktory, mikrofon, …</li>
+</ul></li>
+<li>exoticky prvky pocitace
+<ul>
+<li>CD/ROM</li>
+<li>ctecka jakejchkoliv jinejch medii</li>
+<li>sitova karta, zvukova karta - dneska na zakladovy desce</li>
+</ul></li>
+</ul></li>
+<li><strong>Laptop</strong> - ma vsechno v sobe a vypada jako notebook
+zejo</li>
+<li><strong>All-in-one</strong> - ma v sobe vsechno krome klavesnice a
+mysi (vetsinou)</li>
+<li><strong>Princip chodu</strong>
+<ul>
+<li>Pocitac dostane input (zmacknes mys nebo klavesnici nebo tak), to se
+kabelem dostane do zakladovy desky a tam na ty uz to dokaze nacist
+operacni system, kterej ten vstup posle nejakymu programu (treba lolko)
+ten program se rozhodne ze s tim vstupem neco udela (to rozhodnuti je
+nejaka instrukce processoru) a na zaklade toho rozhodnuti treba vykresli
+neco na monitor (pomoci graficky karty) posle neco na servery lolka pres
+ethernet port a ulozi si treba neco na disk.</li>
+<li>Po celou dobu se vsechny soucastky nabiji ze zdroje a po celou dobu
+je momentalni stav ty hry (programu) a operacniho systemu ulozenej v
+pameti RAM</li>
+</ul></li>
+<li><strong>Periferní zařízení</strong> - viz další kapitola</li>
+<li><strong>Software</strong> v sestavě
+<ul>
+<li>bios na základový desce</li>
+<li>operační systém</li>
+<li>programy stažené uživatelem - hry, office, prohlizec, … ### 3.
+Periferní zařízení</li>
+</ul></li>
+<li>obecně se prej dělí na vstupní, výstupní a multifunkční</li>
+<li><strong>Vstupní</strong> zařízení
+<ul>
+<li><em>Klávesnice</em> - slouží k zadávání znaků (ASCII), připojená
+přes USB, pod klávesamy jsou snímače které při stisknutí pošlou signál
+přes to USB</li>
+<li><em>Myš</em> - určuje polohu kurzoru na obrazovce, také připojená
+přes USB, jsou různé druhy, například kuličková, optická a laserová</li>
+<li><em>Tablet</em> - to co má táta na stole, určuje polohu kurzoru
+pomocí tabletu a pera</li>
+<li><em>Skener</em> - digitalizuje danej dokument, dnes součástí
+tiskáren.</li>
+<li><em>Mikrofon</em> - mění zvuk na elektrický signál, který je potom
+přeměněn na signál digitální a do počítače jde většinou zase přes USB
+(většinou)</li>
+<li><em>Webkamera</em> - Digitalizuje obraz v <code>x</code> snímcích za
+sekundu, z toho video</li>
+<li><em>Gamepad</em> - několik tlačítek co fungují jako klávesnice, 2
+joysticky, případně jakýkoliv složitější gamepad</li>
+</ul></li>
+<li><strong>Výstupní</strong> zařízení
+<ul>
+<li><em>Monitor</em> - zobrazuje informace, dnes je používána
+technologie LCD, velikost daná uhlopříčkou (palce, cm) a poměrem stran.
+Má nějaké rozlišení pixelů (1920x1080) a nějakou obnovovací frekvenci
+(60hz) (potom odezva, jas…)</li>
+<li><em>Dataprojektor</em> - taky zobrazuje, ale přes žárovku, obvykle
+pro vic lidi</li>
+<li><em>Reproduktory</em> - převádějí digitální signál na elektrický a
+ten na zvuk pomocí elektromagnetů, slouží k přehrávání</li>
+<li><em>Tiskárny</em> - tisknou na papír, druhy jsou například
+<ul>
+<li>jehličkové
+<ul>
+<li>tisknou malejma tečkama, maj je třeba na poště jak jsme makali</li>
+<li>jsou hlučné a pomalé</li>
+<li>ale levné na provoz a mohou tisknout více papírů najednou</li>
+</ul></li>
+<li>inkoustové
+<ul>
+<li>rychle a poměrně kvalitně, mohou být barevné</li>
+<li>vyšší pořizovací cena i cena tisku</li>
+</ul></li>
+<li>Laserové tiskárny
+<ul>
+<li>laserová tiskárna vykreslí laserem obrázek na speciální válec, na
+jehož povrch se pak nanese toner a obtiskne se na papír</li>
+<li>nejlíp tiskne, neni to uplne pomaly a ani tak drahy</li>
+<li>ale ma vysokou porizovaci cenu</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><strong>Multifunkční</strong> zařízení
+<ul>
+<li>sluchátka s mikrofonem</li>
+<li>tiskárna se skenerem</li>
+</ul></li>
+<li><strong>Paměťová média</strong>
+<ul>
+<li><strong>TODO</strong> ### 4. Datová úložiště, archivace,
+komprese</li>
+</ul></li>
+<li>slouží k uchování zakódovaných informací</li>
+<li><strong>magnetická</strong> úložiště
+<ul>
+<li>první byly magnetické pásky, kazety a diskety, které ale měly malou
+kapacitu a malou rychlost</li>
+<li>po nich přišly pevné disky (HDD) - kotouč potažený magnetickou
+vrstvou, na které jsou pak stopy a sektory. Pevný disk může mít i víc
+kotoučů a čtení/zápis je prováděn přes pohyblivou ručičku. Výhodou HDD
+je velká kapacita a slušná rychlost</li>
+</ul></li>
+<li><strong>optická</strong> úložiště
+<ul>
+<li>CD, DVD a BD. Čtení a zápis je prováděn laserem, který zapisuje stav
+do speciální vrstvy.</li>
+<li>CD má kapacitu ~700MB, DVD má kapacitu ~5GB. BD má až 700GB.</li>
+<li>Výhodou je relativně nízká cena a objem, nevýhodou je špatná
+přepsatelnost dat, malá rychlost a možnost poškrábání.</li>
+</ul></li>
+<li><strong>elektronická</strong> úložiště
+<ul>
+<li>fungují na principu flash paměti, která má buňky kam jdou zapisovan
+nuly a jedničky</li>
+<li>USB Flash disky - malá 3cm pičovinka co se zapíchne do USB portu na
+počítači, je na ní několik těhle flash úložišť a malej čip co je
+spravuje. Obvykle mají 16/32GB, ale lze i míň i víc.</li>
+<li>Pamťové karty SD - také je v ní flash úložiště, jen je to jinej tvar
+a nepřipojuje se přes USB. Prostě se zapíchne do portu. Obvykle
+používaná u kamer, mobilů a foťáků, mají desítky až stovky GB</li>
+<li>SSD disk - nejnovější nejlepší a nejdražší disk, prodávaj se i
+několika TB, jsou extrémně rychlý, jakože fakt nesrovnatelně i s HDD,
+ale platí se za to. Nevýhodou je prej životnost, ale reálně to neni
+pravda, háka se šlajsovou prostě jen živou před 10 lety, kdy se o to
+lidi báli</li>
+</ul></li>
+<li><strong>Kapacita</strong> - množství informací, které se na disk
+vejde</li>
+<li><strong>Životnost</strong> - jak dlouho disk vydrží</li>
+<li><strong>Komprese</strong> (divný lidi říkaj komprimace)
+<ul>
+<li>máš nějaký data, což je zakódovaná informace, a ty s ní uděláš
+nějakej trik aby zabírala míň místa. Konkrétně jí komprimuješ (to je ten
+trik) a uložíš jí jako komprimovanou, aby ji potom mohl člověk zase
+otevřít. Ve svý podstatě je to zase jen zakódování informace, tentokrát
+za účelem zmenšení místa na disku.</li>
+<li>a to jak to uděláš je zase na tobě, ale je mega těžký vymyslet něco
+co bude fakt efektivní</li>
+<li>příklad komprese:
+<ul>
+<li>budou li za sebou víc než 3 stejné znaky/číslice, nahradíme je
+počtem a znakem/číslicí, tedy AAAAOOADDDBFDDDD -&gt; 4AOOA3DBF4D</li>
+<li>nic extra, je to jen začátečnická komprese, ale příklad hezkej</li>
+</ul></li>
+<li>programy na kompresi - Zip, Tar, GZip, Rar (stačí zip, rar)</li>
+<li>dělí se na ztrátovou a bezztrátovou kompresi. Bezztrátová je
+běžnější a dá se tim komprimovat všechno, to je zip, rar. Ztrátová
+komprese je většinou jen u médií. Malá ztráta kvality je pro velkou
+úsporu místa. (nejde vrátit)</li>
+<li>kompresní poměr je podíl velikosti dat před a po komprimaci, čím
+větší tím lepší. ušetřené místo je pak rozdíl velikosti před a po, pak
+se to dá vyjádřit v procentech ### 5. Matematické soustavy</li>
+</ul></li>
+<li>číselných soustav je nekonečně mnoho, ale ty nejznámější jsou 2, 8,
+10, 16.</li>
+<li><strong>(n -&gt; 10)</strong> převod ze soustavy o základu
+<code>n</code> do desítkové soustavy :
+<ul>
+<li>rozepíšu číslo s ciframa 7234 jako 7n^3 + 2n^2 + 3n + 4, vynásobím a
+sečtu</li>
+</ul></li>
+<li><strong>(10 -&gt; n)</strong> převod desítkové soustavy do soustavy
+o základu <code>n</code> :
+<ul>
+<li>číslo v desítkové soustavě opakovaně dělím základem <code>n</code> a
+zapisuji si celočíselný výsledek a zbytek</li>
+<li>jakmile dojdu k celočíselnému výsledku rovnému nule, tvoří zbytky v
+opačném pořadí cifry čísla v soustavě o základu <code>n</code></li>
+</ul></li>
+<li><strong>Využití</strong>
+<ul>
+<li>duh co</li>
+<li>asi že dvojková je v počítačích častá, takže převod 10 -&gt; 2 je v
+IVT essential ### 6. Operační systém</li>
+</ul></li>
+<li>základní software počítače, stojí mezi hardwarem (noťas) a
+aplikacemi (lolko)</li>
+<li><strong>stará se o</strong> téměř všechny věci co ten počítač dělá -
+připojení k internetu, kreslení na obrazovku, ovládání procesoru a
+grafický karty, zapisování na disk …</li>
+<li>při <strong>spuštění</strong> počítače se automaticky zapne BIOS,
+kterej ne nainstalovanej v základový desce, a spustí operační systém,
+případně ti nabídne nějaký menu kdybys jich měl víc. Tomuto procesu se
+říká <strong>bootování</strong></li>
+<li>architektur, jak navrhnout operační systém je celá řada, je to věda,
+ale ta nejznámější architektura je UNIXová (je na ní postavenej MacOS i
+Linux)</li>
+<li>Každej operační systém musí dělat následující věci
+<ul>
+<li><strong>komunikace s hardware</strong>, na každý zařízení v počítači
+má speciální <strong>driver</strong>, česky ovladač, kterej nějakej
+požadavek (připoj se k wifi) převádí na konkrétní instrukce (jedničky a
+nuly) kterým tenhle konkrétní síťovej čip rozumí</li>
+<li><strong>spravuje procesy</strong> (proces je jeden bežící program,
+viz task manager)
+<ul>
+<li>procesum je přidělená nějaká paměť, maj prioritu atd atd</li>
+</ul></li>
+<li><strong>spravuje prostředky</strong> počítače - paměť, procesor,
+síť, přiděluje je procesům atd</li>
+<li>poskytuje <strong>knihovny</strong> pro základní funkce - když bys
+třeba programoval hru, tak jí nechceš psát tak, že řekneš ok, tak teď
+sáhni do paměti na tuhle adresu x8276D7, přečti 10B, pošli instrukci
+1001010 do processoru… Takovýhle funkce jsou předdefinovaný v
+systémovejch knihovnách, aby programátoři aplikací mohli psát spíš “a=5,
+b=10, vypočti <code>a*b</code>, nakresli tohle na displej”…<br />
+</li>
+<li><strong>API</strong> je programovací rozhraní toho počítače,
+basically standardizovanej způsob, jakym používáš ty věci v systémovejch
+knihovnách</li>
+<li><strong>Shell</strong> je základní způsob komunikace s počítačem.
+Ukáže se ti okýnko kam zadáš příkaz, třeba “ukaž mi všechny složky” a on
+to udělá. Shellů je spousta, na windows je to CMD a PowerShell, na
+Linuxu jsou jich kvanta, například Sh, Bash, já používám NuShell.</li>
+</ul></li>
+<li>Některý operační systémy můžou poskytovat i víc funkcí. Na Linuxu a
+jinejch dobrejch operačních systémech jsou tyhle funkce ve formě
+programů, který si můžeš normálně stáhnout a změnit a odinstalovat,
+Windows a MacOS maj většinu přednastavenou
+<ul>
+<li><strong>Grafické rozhraní</strong> - to na co klikáš myší, včetně
+plochy, grafickejch aplikací a tak. Počítač bez grafickýho rozhraní má
+jen textový rozhraní který vypadá jako cmd ve fullscreenu</li>
+<li>Sada <strong>defaultních aplikací</strong> - Microsof Edge,
+Prohlížeč souborů, Safari, Microsoft Store, …</li>
+</ul></li>
+<li>Všechny tyhle věci jsou dost modulární. Aplikace komunikuje se
+systémem kterej komunikuje s jádrem který komunikuje se základovou
+seskou pomocí nějakýho driveru. V Linuxu třeba jde vyměnit jádro, smazat
+driver atd… tyhle prvky se prostě staví na sebe až vznikne něco čemu se
+dá říkat moderní OS</li>
+<li><strong>základní operace</strong> v shellu:</li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 41%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Příkaz</th>
+<th>Windows</th>
+<th>Unix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>vypiš název momentální složky</td>
+<td><code>&gt; cd</code></td>
+<td><code>$ pwd</code></td>
+</tr>
+<tr class="even">
+<td>vypiš všechny soubory v momentální složce</td>
+<td><code>&gt; dir</code></td>
+<td><code>$ ls</code></td>
+</tr>
+<tr class="odd">
+<td>nový prázdný soubor</td>
+<td><code>&gt; type nul &gt; newfile.txt</code></td>
+<td><code>$ touch newfile.txt</code></td>
+</tr>
+<tr class="even">
+<td>nová prázdná složka</td>
+<td><code>&gt; mkdir složka</code></td>
+<td><code>$ mkdir složka</code></td>
+</tr>
+<tr class="odd">
+<td>přesuň se do jiné složky</td>
+<td><code>&gt; cd path\to\folder\</code></td>
+<td><code>$ cd path/to/folder</code></td>
+</tr>
+<tr class="even">
+<td>vrať se do předchozí složky</td>
+<td><code>&gt; cd ..</code></td>
+<td><code>$ cd ..</code></td>
+</tr>
+<tr class="odd">
+<td>smaž soubor</td>
+<td><code>&gt; del "file.txt"</code></td>
+<td><code>$ rm file.txt</code></td>
+</tr>
+<tr class="even">
+<td>smaž složku</td>
+<td><code>&gt; rmdir path\to\folder</code></td>
+<td><code>$ rm -r path/to/folder</code></td>
+</tr>
+<tr class="odd">
+<td>pingni adresu</td>
+<td><code>&gt; ping google.com</code></td>
+<td><code>$ ping google.com</code></td>
+</tr>
+<tr class="even">
+<td>trasuj cestu k adrese</td>
+<td><code>&gt; tracert google.com</code></td>
+<td><code>$ traceroute google.com</code></td>
+</tr>
+<tr class="odd">
+<td>vytiskni text</td>
+<td><code>&gt; echo "něco"</code></td>
+<td><code>echo něco</code></td>
+</tr>
+<tr class="even">
+<td>zkopíruj soubor do</td>
+<td><code>&gt; copy path\to\file path\to\destination</code></td>
+<td><code>$ cp path/to/file /path/to/destination</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="bezpečnost-a-ochrana-dat">7. Bezpečnost a ochrana dat</h3>
+<ul>
+<li>počítačové viry</li>
+<li>antiviry</li>
+<li>licence, autorské právo, pirátství ### 8. Internet</li>
+<li>historie</li>
+<li>komunikace</li>
+<li>sdílení dat</li>
+<li>IP, IPv4, IPv6</li>
+<li>protokol HTTP</li>
+<li>protokol FTP</li>
+<li>protokol WWW</li>
+<li>PING shell utility</li>
+<li>TRACERT shell utility</li>
+</ul>
+<h3 id="informace-jednotky-bity">9. Informace, jednotky, bity</h3>
+<ul>
+<li><strong>Odstavec co už znáš</strong>
+<ul>
+<li>abstraktni pojem, neco co se da uchovavat a šířit (lepsi definice
+jde blbe)</li>
+<li>abychom ji ale mohli sdilet a uchovavat a treba i cist tak tu
+informaci musime nejak zakodovat. Kodovanim se mysli treba to, ze
+prirozeny cislo prevedes do binarni soustavy a uchovas v pocitaci jako
+jednicky a nuly.</li>
+<li>Opacny pohled je, ze pocitac umi pracovat jen s binarni soustavou a
+i pres to umi nejakym zpusobem zachytit koncepty mimo binární soustavu,
+jako je skin z lolka, akce zmáčknutí myši, obrázek nyan cat …</li>
+<li>Pointa je takova ze jsme skin z lolka / obrazek zakodovali do
+binarni soustavy aby s tim mohl pocitac pracovat a uchovat to.</li>
+<li>Pro hlubší pochopení se podívejme na nějaký <strong>příklady
+kódování</strong>
+<ul>
+<li><strong>Přirozená čísla</strong> v počítači
+<ul>
+<li>nejjednodušší příklad, prostě je převedeme do binární soustavy a
+uchováme v počítači jako nuly a jedničky</li>
+<li>Jde o to, že jsme něco matematickýho, nějakou informaci, převedli do
+řeči počítače aka zakódovali</li>
+</ul></li>
+<li><strong>Písmena ASCII</strong>
+<ul>
+<li>správně se jim neříká písmena, ale spíš charaktery, protože celý
+ASCII neobsahuje jenom písmena ale to je detail</li>
+<li>Jak zadat do počítače písmeno když počítač zná jen jedničky a nuly?
+Jednoduše! Prostě si někdo v minulosti vymezil na jedno písmeno 1 Byte
+(8 bitů).</li>
+<li>V jednom bytu se dá uchovat určitej počet informací, souvisí to s
+kombinatorikou, třeba přes kombinatorický pravidlo součinu máš 8 pozic a
+na každý můžou bejt 2 číslice, to je celkem 2^8 různejch možností,
+celkem 256.</li>
+<li>A lidi si v minulym století prostě řekli, že 00000000=a, 00000001=b,
+00000010=c, 00000011=d, …</li>
+<li>Je to fakt jen o tom, že si o nějaký sekvenci nul a jedniček řekneš
+že něco znamenaj.</li>
+<li>V tom je taky jedinej zádrhel kódování. sekvence 01001011 může
+znamenat 15 když o tom přemýšlíš jako o přirozenym číslu, může to
+znamenat písmeno ‘ů’ v kódování ASCII a může to bejt třeba pixel,
+cokoliv</li>
+<li>Je teda důležitý, abys s danou zakódovanou informací měl i znalost
+jak je zakódovaná, nebo “co je v ní schovaný”</li>
+</ul></li>
+<li><strong>Písmena UNICODE</strong>
+<ul>
+<li>další kódování písmen, o něco složitější ale je v něm víc znaků,
+třeba čínský blbosti a emoji</li>
+<li>funguje jako nadstavba pro ASCII, ale to je detail</li>
+<li>konkrétní tabulku ASCII/UNICODE najdes treba <a
+href="https://web.alfredstate.edu/faculty/weimandn/miscellaneous/ascii/ascii_index.html">tady</a>,
+ty priklady co jsem daval byly samozrejme jen ilustrativni a jsou
+blbe</li>
+</ul></li>
+<li><strong>Obrázky zjednodušeně</strong>
+<ul>
+<li>s celym obrázkem je to složitější, ale naučim tě jeden ze způsobů
+jak zakódovat pixel, obrázek pak bude víc pixelů</li>
+<li>barevnej RGB pixel (se budes ucit s tatou) se da reprezentovat
+trojicí čísel (Red, Green, Blue).</li>
+<li>Přirozený čísla už umíme kódovat, a tedy pixel budou prostě 3
+binární čísla za sebou, tedy šedej pixel bude 000001110000011100000111
+třeba</li>
+</ul></li>
+<li>vyjadřovali jsme všechno v binární soustavě, ale samozřejmě je to
+teoreticky možný v každý soustavě a nebo jakýkoliv jiný blbosti. Klíčem
+je to, že něčemu “přiřadíš takhle význam”</li>
+</ul></li>
+</ul></li>
+<li><strong>Jednotky</strong>
+<ul>
+<li>základní jednotka je bit. Bit jo logická hodnota True/False 1/0. Tak
+jak jste se učili v matice ve výrokový logice</li>
+<li>spoustukrát se to hodí, ale na spoustu věcí je to malá jednotka,
+třeba na písmeno ASCII máš 8 bitů. Proto se rozhodlo, že bude i jednotka
+Byte, kde 1 Byte = 8 bitů</li>
+<li>Byty i bity se značí B a b/bit a normálně se k nim dávaj předpony
+GB, Mbit kde se postupuje po 1024 násobku</li>
+<li>Na tuhle otázku by asi bylo dobrý si nastudovat (až na místě)
+tabulku ascii a nějakej třeba emoji symbol na <a
+href="https://symbl.cc">symbl.cc</a> a něco o tom kecnout ### 10.
+Word</li>
+</ul></li>
+<li>tvorba dokumentů</li>
+<li>formuláře</li>
+<li>typografická pravidla ### 11. Excel</li>
+<li>dokumenty v excelu?</li>
+<li>formátování tabulek</li>
+<li>vzorce</li>
+<li>relativní a absolutní odkazování</li>
+<li>funkce</li>
+<li>statistika ### 12. Spolupráce wordu a excelu</li>
+<li>hromadná korespondence</li>
+<li>makra</li>
+<li>formuláře v excelu</li>
+<li>kontingenční tabulka ### 13. Prezentace</li>
+<li>tvorba</li>
+<li>časování</li>
+<li>přechody</li>
+<li>animace</li>
+<li>zásady ### 14. Databáze</li>
+<li>princip</li>
+<li>tvorba</li>
+<li>SQL</li>
+<li>formulář</li>
+<li>dotaz</li>
+<li>sestavy ### 15. Komunikace přes internet</li>
+<li>online</li>
+<li>offline</li>
+<li>email</li>
+<li>fóra</li>
+<li>chatovací aplikace</li>
+<li>aplikace na volání</li>
+<li>sociální sítě</li>
+<li>sdílení dokumentů ### 16. Rastrová grafika</li>
+<li>pixel</li>
+<li>obrázek</li>
+<li>dpi</li>
+<li>koláž, fotomontáž, retuš, layout webové stránky ### 17. Vektorová
+grafika</li>
+<li>vektor</li>
+<li>vektorová funkce</li>
+<li>křivka</li>
+<li>plocha</li>
+<li>souřadné systémy</li>
+<li>logo, vizitka, dopravní značka ### 18. Barvy, barevné modely</li>
+<li>barevný model</li>
+<li>RGB</li>
+<li>CMYK</li>
+<li>HSL</li>
+<li>HSV</li>
+<li>Přímé barvy</li>
+<li>psychologie barev</li>
+<li>barevná hloubka ### 19. 3D grafika</li>
+<li>definice</li>
+<li>proces tvorby 3D obrázku</li>
+<li>materiály, textury ### 20. Počítačová síť, topologie, druhy
+zapojení</li>
+<li><strong>zařízení</strong>
+<ul>
+<li>Aktivní síťové prvky - basically všechny zařízení
+<ul>
+<li>Repeater (opakovač)
+<ul>
+<li>pracuje s elektrickým signálem</li>
+<li>příjmá zkreslený, zašuměný, počkozený elektrický signál</li>
+<li>vysílá opravený, zesílený a správně načasovaný signál</li>
+<li>umožňuje zvýšit dosah elektrického signálu bez ztráty kvality</li>
+</ul></li>
+<li>Hub (rozbočovač)
+<ul>
+<li>umožňuje větvení sítě</li>
+<li>veškerá příchozí data rozešle do všech ostatních portů</li>
+<li>přesně z toho důvodu není vždy ideální, protože nechceš vždy data
+poslat do všech počítačů</li>
+</ul></li>
+<li>Switch (přepínač)
+<ul>
+<li>propojuje jednotlivé části sítě</li>
+<li>je na něj připojeno více zařízení, ale umožňuje poslat data z
+jednoho zařízení do druhého bez sdílení se všemi zařízeními</li>
+<li>-&gt; lepší bezpečnost sítě</li>
+</ul></li>
+<li>Bridge (most)
+<ul>
+<li>spojuje dvě části sítě na druhé vrstvě OSI modelu</li>
+<li>v paměti má tabulku MAC adres rozdělenou na “segmenty” (prostě různý
+grupy zařízení) a mezi těma segmentama přeposílá data</li>
+</ul></li>
+<li>Router (směrovač)
+<ul>
+<li>přeposílá data k jejich cíli ve třetí vrstvě OSI modelu</li>
+<li>může to dělat skoro každej počítač, ale často se používaj routery se
+specialnim HW a SW</li>
+</ul></li>
+</ul></li>
+<li>Pasivní síťové prvky
+<ul>
+<li>kabely</li>
+<li>konektory</li>
+<li>zásuvky</li>
+<li>rozvaděče (idk)</li>
+</ul></li>
+</ul></li>
+<li><strong>protokoly</strong>
+<ul>
+<li>Sada protokolů TCP/IP
+<ul>
+<li><em>IP, IPv4, IPv6</em> - ip adresy ruznejch verzi</li>
+<li><em>TCP, UDP</em> - protokoly pro přenos dat mezi počítačema</li>
+<li><em>DNS</em> - systém doménových jmen - abys mohl do prohlizece psat
+google.com misto IP adresy</li>
+<li><em>DHCP</em> - vubec netusim</li>
+<li><em>HTTP(S)</em> - protokol pro sdileni webovejch stranek (S kdyz je
+zabezpecenej)</li>
+<li><em>SMTP</em> - protokol pres kterej se posila email</li>
+<li><em>SSH</em> - šifrované vzdálené připojení k počítači, lze přes to
+i posílat soubory (ukazu)</li>
+<li>…</li>
+</ul></li>
+</ul></li>
+<li><strong>rozdělení</strong> sítí
+<ul>
+<li>podle velikosti
+<ul>
+<li><em>LAN</em> (local) - do stovek metrů, umožňují sdílet tiskárny,
+soubory a zpravy apod</li>
+<li><em>MAN</em> (metropolitan) - do několika kilometrů, dneska se
+podobaj LAN, jsou i veřejný někdy</li>
+<li><em>WAN</em> (world) - po celym světě, zařízení WAN jsou jednotlivé
+MAN a WAN připojený přes nějakej výkonnej počítač co všechno možný řídí
+a přeposílá (asi ne vzdycky), internet je v zásadě WAN, ale asi může
+bejt víc WANů, takže se po WANu můžou posílat zpávy, soubory, přístup na
+stránky, …</li>
+<li><em>PAN</em> (personal)</li>
+</ul></li>
+<li>podle “topologie”
+<ul>
+<li><em>Kružnice</em> - lehký rozšířit, málo drátů</li>
+<li><em>Sběrnice</em> - acnient, vsechny zarizeni pripojeny na jeden
+spesl kabel. Kdyz vypadne stanice tak to neni problem ale kdyz vypadne
+kabel je to vpici</li>
+<li><em>Hvězda</em> - zarizeni ve stredu je kinda like a server co hodne
+preposila, kdyz vypadne je to blby ale je hodne lehky k nemu pripojit
+dalsi</li>
+<li>jakejkoliv jinej obrázek, klidně jen rovná čára, tyhle jsou jen ty
+“nejznámější”</li>
+</ul></li>
+<li>propojení sítí LAN
+<ul>
+<li>máme několik sítí LAN a chceš aby mohli okmunikovat lidi mezi sítěma
+nebo sítě mezi sebou</li>
+<li>a jedinej trik co se udělá je, že si představíš celou síť jako jedno
+zařízení a zase je zapojíš do “topologií” co znáš</li>
+<li>takže můžeš mít LANky ve hvězdě nebo v kružnici nebo tak</li>
+</ul></li>
+<li>podle úlohy zařízení
+<ul>
+<li><em>client/server</em> - máš servery třeba lolka a k nim se
+připojujou hráči a hrajou, posílaj tam informace a server posílá jiný
+informace zpátky</li>
+<li><em>peer to peer</em> - to je složitější, v roce 2023 je vic zpusobu
+jak to řešit, ale to zakladni si muzes predstavit ze kazdej ucastnik je
+zaroven klient a zaroven server a ze jsou vsichni na stejny urovni
+(počítač máš furt zaplej a někomu může něco posílat a zároveň můžeš na
+ten počítač přijít a říct jinýmu počítači ať ti něco pošle)</li>
+</ul></li>
+</ul></li>
+<li><strong>OSI</strong> model
+<ul>
+<li><em>fyzická</em> vrstva - kabely, elektronika - Hub, Repeater</li>
+<li><em>linková</em> vrstva - spojení mezi dvěma sousedními systémy -
+Bridge a Switch</li>
+<li><em>síťová</em> vrstva - směrování a adresování - switch</li>
+<li><em>transportní</em> vrstva - zajišťuje přenos dat - protokoly TCP,
+UDP</li>
+<li><em>relační</em> vrstva - relace je aktuální spojení mezi dvěma
+zařízeníma, se propojí a dokud jsou propojený a dokud jsou propojeni tak
+je to ono</li>
+<li><em>prezentační</em> vrstva - transformuje data který se posílaj v
+síti do nějakejch předepsanejch trvarů a blbostí</li>
+<li><em>aplikační</em> vrstva - umožňuje aplikacím využívat síť -
+všechny ostatní protokoly HTTP(S), FTP, DNS, SSH, SMTP ### 21-22.
+Matematika v ICT</li>
+</ul></li>
+<li>konstrukční úlohy v geogebře</li>
+<li>trojúhelníky, rovnoběžníky, kružnice opsané, vepsané</li>
+<li>“dynamika” geometrie</li>
+<li>řešení matematických problémů na počítači</li>
+<li>program GRAPH</li>
+<li>funkce a její vlastnosti</li>
+<li>řešení rovnic, nerovnic a soustav ### 23. Algoritmy</li>
+<li>algoritmus</li>
+<li>algoritmizace</li>
+<li>vlastnosti</li>
+<li>tvorba</li>
+<li>diagram ### 24. Programování pro web</li>
+<li>jednoduchej HTML dokument by měl následující strukturu</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>  </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;html&gt;</span>  </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;head&gt;</span>  </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;title&gt;</span>Název stránky<span class="kw">&lt;/title&gt;</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;meta</span> <span class="er">charset</span><span class="ot">=</span><span class="st">&quot;UTF-8&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;link</span> <span class="er">rel</span><span class="ot">=</span><span class="st">&quot;stylesheet&quot;</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;style.css&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;meta</span> <span class="er">name</span><span class="ot">=</span><span class="st">&quot;author&quot;</span> <span class="er">content</span><span class="ot">=</span><span class="st">&quot;Jonas Konarik&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;meta</span> <span class="er">name</span><span class="ot">=</span><span class="st">&quot;topic&quot;</span> <span class="er">content</span><span class="ot">=</span><span class="st">&quot;tema stranky&quot;</span><span class="kw">&gt;</span>  </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/head&gt;</span> </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;style&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        h1 {<span class="kw">color</span>:<span class="cn">red</span><span class="op">;</span>}</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        p {<span class="kw">color</span>:<span class="cn">blue</span><span class="op">;</span>}</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        kokos {<span class="kw">color</span>:<span class="cn">gray</span><span class="op">;</span>}</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/style&gt;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;body&gt;</span>  </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;h1&gt;</span>Nadpis nadpis<span class="kw">&lt;/h1&gt;</span>  </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;p&gt;</span>Tohle je odstavec.<span class="kw">&lt;/p&gt;</span>  </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;ol&gt;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;li&gt;</span>Řazenej seznam<span class="kw">&lt;/li&gt;</span> </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;li&gt;</span>Ordered List<span class="kw">&lt;/li&gt;</span> </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;li&gt;</span>Položka seznamu List Item<span class="kw">&lt;/li&gt;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;/ol&gt;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;ul&gt;</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;li&gt;</span>Neřazenej seznam<span class="kw">&lt;/li&gt;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;li&gt;</span>Unordered List<span class="kw">&lt;/li&gt;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;/ul&gt;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;a</span> <span class="er">href</span><span class="ot">=</span><span class="st">&quot;https://google.com&quot;</span><span class="kw">&gt;</span>Tohle je odkaz!<span class="kw">&lt;/a&gt;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;p&gt;</span>Po tomhle odstavci budou dva line braky<span class="kw">&lt;/p&gt;</span> <span class="kw">&lt;br&gt;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;code&gt;</span>a=5; print(5*a);<span class="kw">&lt;/code&gt;</span> sem dat nejakej kod</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;img</span> <span class="er">src</span><span class="ot">=</span><span class="st">&quot;/path/to/picture.jpg&quot;</span> <span class="er">alt</span><span class="ot">=</span><span class="st">&quot;popis obrázku&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;svg</span> <span class="er">width</span><span class="ot">=</span><span class="st">&quot;100&quot;</span><span class="er">,</span> <span class="er">height</span><span class="ot">=</span><span class="st">&quot;100&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;circle</span> <span class="er">cx</span><span class="ot">=</span><span class="st">&quot;50&quot;</span> <span class="er">cy</span><span class="ot">=</span><span class="st">&quot;50&quot;</span> <span class="er">r</span><span class="ot">=</span><span class="st">&quot;40&quot;</span> <span class="er">stroke</span><span class="ot">=</span><span class="st">&quot;black&quot;</span> <span class="er">fill</span><span class="ot">=</span><span class="st">&quot;yellow&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;/svg&gt;</span> tady bude zobrazenej SVG kruh</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;div</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;kokos&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;p&gt;</span>Tenhle odstavec je zanořenej v divu, </span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>               dědí jeho CSS formátování, sedy pismo.<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;/div&gt;</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/body&gt;</span>  </span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
+<ul>
+<li>jednoduchej CSS dokument by měl mít následující strukturu</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode css"><code class="sourceCode css"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>body{</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">background-color</span>: <span class="cn">lightblue</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">background-image</span>: <span class="fu">url(</span><span class="st">&quot;images/picture.jpg&quot;</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">font-family</span>: <span class="dv">serif</span>/<span class="dv">sans-serif</span>/<span class="dv">monospace</span>/<span class="dv">cursive</span>/emoji/math<span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">font-family</span>: <span class="st">&quot;JetBrains Mono&quot;</span><span class="op">,</span> <span class="dv">monospace</span><span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>p{</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">text-align</span>: <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">font-weight</span>: <span class="dv">400</span><span class="op">;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>kokos{</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">padding-top</span>: <span class="dv">50</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">padding-left</span>: <span class="dv">5</span><span class="dt">%</span><span class="op">;</span> </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">margin-right</span>: <span class="dv">40</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">border-style</span>: <span class="dv">solid</span><span class="op">;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">border-width</span>: <span class="dv">5</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>extra{</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">position</span>: <span class="dv">static</span>/<span class="dv">relative</span>/<span class="dv">fixed</span>/<span class="dv">absolute</span><span class="op">;</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">float</span>: <span class="dv">left</span><span class="op">;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">margin</span>: <span class="bu">auto</span><span class="op">;</span> <span class="co">/*posune do stredu*/</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>} </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">/*snazil jsem se tu vypichnout to nejdulezitejsi*/</span></span></code></pre></div>
+<ul>
+<li>html dokument i css soubor by měli být v jedné složce, obrázky v
+podsložce /img třeba</li>
+</ul>
+<pre><code>- projekt
+    - index.html
+    - style.css
+    - img
+        - picture1.jpg
+        - picture2.png</code></pre>
+<ul>
+<li>Nastudovat positioning v CSS protože je pěkně debilní!!!!! ### 25.
+Programování pro web - BootStrap</li>
+<li>webové <strong>frameworky</strong>
+<ul>
+<li>je jich hrozná mrda a furt vznikaj nový</li>
+<li>slouží k tomu aby šlověk nemusel psát všechno ručně, tak častý věci
+jsou předepsaný “frameworky”</li>
+<li><a
+href="https://en.wikipedia.org/wiki/Comparison_of_JavaScript-based_web_frameworks">https://en.wikipedia.org/wiki/Comparison_of_JavaScript-based_web_frameworks</a></li>
+</ul></li>
+<li><strong>bootstrap</strong>
+<ul>
+<li>prostě jeden hodně basic framework, máš předdefinovaný nějaký CSS
+třídy který použiješ v HTML dokumentu a ono to prostě nevypadá špatně a
+je to reizable</li>
+<li><strong>instalace</strong>
+<ul>
+<li><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"&gt;</code>
+do <code>&lt;head&gt;</code> pro BootStrap 4</li>
+<li><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;</code>
+taky do <code>&lt;head&gt;</code> prej je to dulezity idk</li>
+<li>vsechno ze stranky <a
+href="https://getbootstrap.com/docs/4.0/getting-started/introduction/">https://getbootstrap.com/docs/4.0/getting-started/introduction/</a></li>
+</ul></li>
+<li><strong>principy</strong>
+<ul>
+<li>jakejkoliv prvek co chci nějak stajlovat obalim do divu</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;p&gt;</span>Odstavec o hovně<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/div&gt;</span></span></code></pre></div>
+<ul>
+<li>a k tomu divu přidám nějakou třídu z bootstrapu</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">class</span><span class="ot">=</span><span class="st">&quot;container-fluid&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;p&gt;</span>Odstavec o hovně<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/div&gt;</span></span></code></pre></div>
+<ul>
+<li>tadá!</li>
+</ul></li>
+<li>základní <strong>třídy</strong>
+<ul>
+<li>container - box okolo prvků v něm se zafixovanou šířkou</li>
+<li>container-fluid - box okolo prvků který obsahuje, šířka je celá
+obrazovka</li>
+<li>row (řádek), col (sloupec) - vytvoří tabulku
+<code>HTML       &lt;div class="row"&gt;           &lt;div class="col"&gt;1.1.&lt;/div&gt;           &lt;div class="row"&gt;1.2.&lt;/div&gt;       &lt;/div&gt;       &lt;div class="row"&gt;           &lt;div class="col"&gt;2.1.&lt;/div&gt;           &lt;div class="row"&gt;2.2.&lt;/div&gt;       &lt;/div&gt;</code></li>
+</ul></li>
+</ul></li>
+</ul>
+</body>
 </html>
